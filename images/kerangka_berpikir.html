@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kerangka Berpikir Penelitian</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .arrow { display: inline-block; width: 30px; height: 2px; background: #6b7280; position: relative; }
+    .arrow::after { content: ''; position: absolute; right: -4px; top: -4px; border-left: 8px solid #6b7280; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+  </style>
+</head>
+<body class="bg-gray-50 flex justify-center py-8">
+  <div class="w-[1100px] bg-white rounded-2xl shadow-xl overflow-hidden p-6">
+    
+    <!-- Title -->
+    <div class="text-center mb-6">
+      <h1 class="text-xl font-bold text-gray-800">Gambar 3.1 Kerangka Berpikir Penelitian</h1>
+      <p class="text-xs text-gray-400 mt-1">Sumber: Diolah oleh peneliti (2026)</p>
+    </div>
+
+    <!-- Flow: Input → Proses → Output → Dampak -->
+    <div class="grid grid-cols-4 gap-3">
+      
+      <!-- INPUT -->
+      <div class="space-y-3">
+        <div class="bg-red-600 text-white text-center py-2 rounded-lg font-bold text-sm">INPUT</div>
+        
+        <div class="bg-red-50 border-2 border-red-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-red-700 mb-2">Kondisi Aktual (Manual)</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Pelaporan masih manual</li>
+            <li>• Evaluasi belum otomatis</li>
+            <li>• Data tidak real-time</li>
+            <li>• Sulit monitoring</li>
+          </ul>
+        </div>
+        
+        <div class="bg-blue-50 border-2 border-blue-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-blue-700 mb-2">Data Primer & Sekunder</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Observasi Disdukcapil</li>
+            <li>• Wawancara (S. Juliana)</li>
+            <li>• Kuesioner (30 responden)</li>
+            <li>• Studi literatur (12 jurnal)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Arrow 1 -->
+      <div class="flex items-center justify-center col-span-1" style="margin-top: 80px;">
+        <div class="arrow" style="transform: rotate(0deg); width: 40px;"></div>
+      </div>
+
+      <!-- PROSES -->
+      <div class="space-y-3">
+        <div class="bg-orange-600 text-white text-center py-2 rounded-lg font-bold text-sm">PROSES</div>
+        
+        <div class="bg-orange-50 border-2 border-orange-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-orange-700 mb-2">Metode Scrum</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Sprint Planning</li>
+            <li>• Sprint Execution</li>
+            <li>• Sprint Review</li>
+            <li>• Sprint Retrospective</li>
+          </ul>
+        </div>
+        
+        <div class="bg-cyan-50 border-2 border-cyan-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-cyan-700 mb-2">Teknologi</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Frontend: Next.js 15</li>
+            <li>• Backend: Go (Golang)</li>
+            <li>• Database: Supabase</li>
+          </ul>
+        </div>
+        
+        <div class="bg-purple-50 border-2 border-purple-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-purple-700 mb-2">Fitur Utama</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Pelaporan aktivitas</li>
+            <li>• Rules-based scoring</li>
+            <li>• Duplicate operator</li>
+            <li>• Dashboard monitoring</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Arrow 2 -->
+      <div class="flex items-center justify-center col-span-1" style="margin-top: 80px;">
+        <div class="arrow" style="transform: rotate(0deg); width: 40px;"></div>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="space-y-3">
+        <div class="bg-green-600 text-white text-center py-2 rounded-lg font-bold text-sm">OUTPUT</div>
+        
+        <div class="bg-green-50 border-2 border-green-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-green-700 mb-2">Sistem Evaluasi Digital</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Platform web responsif</li>
+            <li>• Evaluasi otomatis</li>
+            <li>• Dashboard real-time</li>
+            <li>• Data terintegrasi</li>
+          </ul>
+        </div>
+        
+        <div class="bg-emerald-50 border-2 border-emerald-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-emerald-700 mb-2">Evaluasi</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Black-box Testing</li>
+            <li>• System Usability Scale</li>
+          </ul>
+        </div>
+        
+        <div class="bg-pink-50 border-2 border-pink-300 rounded-lg p-3">
+          <h3 class="text-xs font-bold text-pink-700 mb-2">Dampak</h3>
+          <ul class="text-[10px] text-gray-600 space-y-1">
+            <li>• Efisiensi pelaporan ↑</li>
+            <li>• Evaluasi objektif</li>
+            <li>• Monitoring real-time</li>
+            <li>• Keputusan berbasis data</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
