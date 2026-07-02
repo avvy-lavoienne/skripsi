@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gambar 1.2 - Perbandingan Proses Manual vs Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .arrow-down { position: relative; }
+    .arrow-down::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid currentColor;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 flex justify-center py-8">
+  <div class="w-[1100px] bg-white rounded-2xl shadow-xl overflow-hidden">
+    
+    <div class="grid grid-cols-2 gap-0">
+      
+      <!-- LEFT: Manual -->
+      <div class="px-6 py-5 bg-red-50/50">
+        <div class="bg-red-500 rounded-lg px-4 py-2 text-center mb-4">
+          <h2 class="text-sm font-bold text-white tracking-widest">PROSES MANUAL (SAAT INI)</h2>
+        </div>
+        
+        <div class="space-y-2">
+          <!-- Step 1 -->
+          <div class="bg-amber-100 border-2 border-amber-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">1. Pegawai mengisi laporan</div>
+            <div class="text-xs text-gray-500">di dokumen kertas</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-red-400 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-red-400"></div></div></div>
+          
+          <!-- Step 2 -->
+          <div class="bg-amber-100 border-2 border-amber-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">2. Serahkan ke Tata Usaha</div>
+            <div class="text-xs text-gray-500">secara manual/fisik</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-red-400 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-red-400"></div></div></div>
+          
+          <!-- Step 3 -->
+          <div class="bg-amber-100 border-2 border-amber-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">3. Catat di Buku Agenda</div>
+            <div class="text-xs text-gray-500">secara manual satu per satu</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-red-400 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-red-400"></div></div></div>
+          
+          <!-- Step 4 -->
+          <div class="bg-amber-100 border-2 border-amber-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">4. Arsipkan dalam bentuk fisik</div>
+            <div class="text-xs text-gray-500">lemari arsip / rak dokumen</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-red-400 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-red-400"></div></div></div>
+          
+          <!-- Step 5 -->
+          <div class="bg-amber-100 border-2 border-amber-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">5. Pimpinan cek manual</div>
+            <div class="text-xs text-gray-500">satu per satu dokumen</div>
+          </div>
+        </div>
+
+        <!-- Problem box -->
+        <div class="mt-4 bg-red-100 border border-red-300 rounded-lg px-4 py-2 text-center">
+          <p class="text-xs font-semibold text-red-700">⚠ Masalah: Lambat, Error-prone, Sulit tracking</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="absolute left-1/2 top-20 bottom-4 w-px bg-gray-300 -translate-x-1/2" style="position:absolute;left:50%;top:80px;bottom:16px;width:1px;background:#d1d5db;"></div>
+
+      <!-- RIGHT: Digital -->
+      <div class="px-6 py-5 bg-emerald-50/50">
+        <div class="bg-emerald-600 rounded-lg px-4 py-2 text-center mb-4">
+          <h2 class="text-sm font-bold text-white tracking-widest">PROSES DIGITAL (SISTEM YANG DIKEMBANGKAN)</h2>
+        </div>
+        
+        <div class="space-y-2">
+          <!-- Step 1 -->
+          <div class="bg-emerald-100 border-2 border-emerald-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">1. Pegawai input via web app</div>
+            <div class="text-xs text-gray-500">dari browser kapan saja</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-emerald-500 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-emerald-500"></div></div></div>
+          
+          <!-- Step 2 -->
+          <div class="bg-emerald-100 border-2 border-emerald-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">2. Data langsung ke database</div>
+            <div class="text-xs text-gray-500">tersimpan otomatis & aman</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-emerald-500 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-emerald-500"></div></div></div>
+          
+          <!-- Step 3 -->
+          <div class="bg-emerald-100 border-2 border-emerald-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">3. Evaluasi otomatis</div>
+            <div class="text-xs text-gray-500">rules-based scoring engine</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-emerald-500 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-emerald-500"></div></div></div>
+          
+          <!-- Step 4 -->
+          <div class="bg-emerald-100 border-2 border-emerald-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">4. Dashboard real-time</div>
+            <div class="text-xs text-gray-500">monitoring dari mana saja</div>
+          </div>
+          <div class="flex justify-center"><div class="w-0 h-4 border-l-2 border-emerald-500 relative"><div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-emerald-500"></div></div></div>
+          
+          <!-- Step 5 -->
+          <div class="bg-emerald-100 border-2 border-emerald-400 rounded-lg px-4 py-3 text-center">
+            <div class="text-sm font-semibold text-gray-800">5. Pimpinan akses kapan saja</div>
+            <div class="text-xs text-gray-500">data tersaji secara real-time</div>
+          </div>
+        </div>
+
+        <!-- Benefit box -->
+        <div class="mt-4 bg-emerald-100 border border-emerald-300 rounded-lg px-4 py-2 text-center">
+          <p class="text-xs font-semibold text-emerald-700">✓ Hasil: Cepat, Akurat, Transparan, Real-time</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Source -->
+    <div class="px-8 pb-4 pt-2">
+      <p class="text-[10px] text-gray-400 text-center">Sumber: Diolah oleh peneliti berdasarkan hasil wawancara dengan S. Juliana, S.T. (Disdukcapil Kab. Garut, 2026)</p>
+    </div>
+
+  </div>
+</body>
+</html>
