@@ -1,0 +1,62 @@
+@startuml Sequence_Diagram
+
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Arial"
+skinparam defaultFontSize 11
+skinparam sequenceArrowThickness 2
+
+title **Sequence Diagram**\nAlur Input Aktivitas Harian
+
+actor "Petugas\nPerekaman" as PP
+participant "Frontend\n(Next.js)" as FE
+participant "Backend\n(Go/Gin)" as BE
+database "Database\n(Supabase)" as DB
+participant "Email\nService" as EMAIL
+
+== Autentikasi ==
+PP -> FE : Login (NIP & Password)
+FE -> BE : POST /api/auth/login
+BE -> DB : SELECT user WHERE nip=?
+DB --> BE : User data
+BE --> FE : JWT Token
+FE --> PP : Dashboard
+
+== Input Aktivitas ==
+PP -> FE : Input Aktivitas Harian
+activate FE
+FE -> BE : POST /api/laporan/aktivitas
+activate BE
+BE -> DB : INSERT INTO laporan_aktivitas
+activate DB
+DB --> BE : Success
+deactivate DB
+BE --> FE : 201 Created
+deactivate BE
+FE --> PP : "Berhasil disimpan"
+deactivate FE
+
+== Deteksi Anomali ==
+FE -> BE : POST /api/anomali/check
+activate BE
+BE -> DB : SELECT * FROM biometric_data
+activate DB
+DB --> BE : Biometric records
+deactivate DB
+
+alt Duplicate Operator Detected
+    BE -> DB : INSERT INTO anomali_data
+    BE --> FE : Anomali Ditemukan
+    FE --> PP : "Warning: Duplicate!"
+else Tidak Ada Anomali
+    BE --> FE : Normal
+end
+deactivate BE
+
+== Notifikasi ==
+BE -> EMAIL : Send Notifikasi
+activate EMAIL
+EMAIL --> PP : Email Notification
+deactivate EMAIL
+
+@enduml

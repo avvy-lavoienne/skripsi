@@ -1,0 +1,106 @@
+@startuml Class_Diagram
+
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Arial"
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+
+title **Class Diagram**\nStruktur Data Sistem
+
+class User {
+    - id: UUID
+    - nama: String
+    - email: String
+    - role: Enum
+    - password_hash: String
+    - created_at: Timestamp
+    + login()
+    + logout()
+    + getProfile()
+}
+
+class Pegawai {
+    - nip: String
+    - bidang: String
+    - jabatan: String
+    + inputAktivitas()
+    + lihatDashboard()
+    + submitLaporan()
+}
+
+class LaporanAktivitas {
+    - id: UUID
+    - pegawai_id: UUID
+    - tanggal: Date
+    - jenis_aktivitas: String
+    - jumlah: Integer
+    - keterangan: Text
+    - status: Enum
+    + create()
+    + update()
+    + submit()
+}
+
+class AnomaliData {
+    - id: UUID
+    - laporan_id: UUID
+    - jenis_anomali: Enum
+    - deskripsi: Text
+    - bukti_url: String
+    - status: Enum
+    - created_at: Timestamp
+    + report()
+    + updateStatus()
+    + addBukti()
+}
+
+class Rekapitulasi {
+    - id: UUID
+    - bulan: Integer
+    - tahun: Integer
+    - total_laporan: Integer
+    - total_anomali: Integer
+    - skor_kinerja: Float
+    + generate()
+    + export()
+}
+
+class Notifikasi {
+    - id: UUID
+    - user_id: UUID
+    - pesan: Text
+    - is_read: Boolean
+    - created_at: Timestamp
+    + send()
+    + markAsRead()
+}
+
+class Dashboard {
+    - id: UUID
+    - user_id: UUID
+    - data_kinerja: JSON
+    - last_updated: Timestamp
+    + render()
+    + refresh()
+}
+
+' === Relationships ===
+User <|-- Pegawai
+User <|-- Administrator
+User <|-- KabidPIAK
+User <|-- KepalaDinas
+
+Pegawai "1" --> "*" LaporanAktivitas : membuat
+LaporanAktivitas "1" --> "*" AnomaliData : memiliki
+Pegawai "1" --> "*" AnomaliData : melaporkan
+
+Administrator "1" --> "*" Rekapitulasi : generate
+KabidPIAK "1" --> "*" Rekapitulasi : approve
+
+User "1" --> "*" Notifikasi : menerima
+User "1" --> "1" Dashboard : memiliki
+
+Rekapitulasi --> Dashboard : menampilkan
+
+@enduml

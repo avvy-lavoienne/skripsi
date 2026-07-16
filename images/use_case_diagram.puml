@@ -1,0 +1,79 @@
+@startuml Use_Case_Diagram
+
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Arial"
+skinparam defaultFontSize 11
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+
+title **Use Case Diagram**\nSistem Evaluasi Pelaporan Disdukcapil
+
+left to right direction
+
+actor "Petugas\nPerekaman" as PP
+actor "Administrator\nDatabase" as AD
+actor "Kabid PIAK" as KP
+actor "Kepala\nDinas" as KD
+
+rectangle "Sistem Evaluasi Pelaporan" {
+
+    ' === Autentikasi ===
+    usecase "Login" as UC1
+    usecase "Logout" as UC2
+    
+    ' === Fitur Petugas ===
+    usecase "Input Aktivitas\nHarian" as UC3
+    usecase "Lihat Dashboard\nKinerja" as UC4
+    usecase "Submit Laporan\nBulanan" as UC5
+    
+    ' === Fitur Anomali ===
+    usecase "Lapor Duplicate\nOperator" as UC6
+    usecase "Lapor Salah\nRekam" as UC7
+    usecase "Input Bukti\nPerbaikan" as UC8
+    
+    ' === Fitur Admin ===
+    usecase "Monitoring\nProgress" as UC9
+    usecase "Verifikasi\nLaporan" as UC10
+    usecase "Rekapitulasi\nAnomali" as UC11
+    
+    ' === Fitur Pimpinan ===
+    usecase "Lihat Dashboard\nIndikator" as UC12
+    usecase "Approve\nLaporan" as UC13
+    usecase "Export\nLaporan" as UC14
+    
+    ' === Notifikasi ===
+    usecase "Terima Notifikasi\nEmail" as UC15
+}
+
+' === Relations ===
+PP --> UC1
+PP --> UC2
+PP --> UC3
+PP --> UC4
+PP --> UC5
+PP --> UC6
+PP --> UC7
+PP --> UC8
+
+AD --> UC1
+AD --> UC9
+AD --> UC10
+AD --> UC11
+
+KP --> UC1
+KP --> UC9
+KP --> UC12
+KP --> UC13
+
+KD --> UC1
+KD --> UC12
+KD --> UC13
+KD --> UC14
+
+UC5 ..> UC15 : <<include>>
+UC6 ..> UC15 : <<include>>
+UC7 ..> UC15 : <<include>>
+UC10 ..> UC15 : <<include>>
+
+@enduml
