@@ -1,87 +1,55 @@
-@startuml
+@startuml Kerangka_Berpikir_Design_Thinking
+
 !theme plain
-skinparam backgroundColor #FFFFFF
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Arial"
 skinparam defaultFontSize 12
-skinparam defaultFontName "Times New Roman"
+skinparam arrowColor #333333
+skinparam borderColor #333333
 
-title Kerangka Berpikir Penelitian
+title **Kerangka Berpikir Penelitian**\nMetode Design Thinking
 
-rectangle "INPUT" as input #E8F5E9 {
-  rectangle "Kondisi Aktual\n(Proses Manual)" as kondisi #FFCDD2 {
-    note right of kondisi
-      - Pelaporan aktivitas pegawai masih manual
-      - Evaluasi kinerja belum otomatis
-      - Data tidak real-time
-      - Sulit monitoring oleh pimpinan
-    end note
-  }
-  
-  rectangle "Data Primer & Sekunder" as data #E3F2FD {
-    note right of data
-      - Observasi di Disdukcapil Garut
-      - Wawancara (S. Juliana, S.T.)
-      - Kuesioner (30 responden)
-      - Studi literatur (12 jurnal)
-    end note
-  }
-}
+| **TAHAP 1: EMPATHIZE** |
+start
+:Observasi langsung di Disdukcapil;
+note right
+  Melihat alur kerja
+  petugas perekaman
+end note
+:wawancara dengan petugas;
+note right
+  Memahami kendala
+  dan kebutuhan
+end note
 
-rectangle "PROSES" as proses #FFF3E0 {
-  rectangle "Metode Scrum\n(Iterasi Sprint)" as scrum #FFE0B2 {
-    note right of scrum
-      - Sprint Planning
-      - Sprint Execution
-      - Sprint Review
-      - Sprint Retrospective
-    end note
-  }
-  
-  rectangle "Teknologi" as tech #E1F5FE {
-    rectangle "Frontend\nNext.js 15 + Tailwind CSS" as fe #B3E5FC
-    rectangle "Backend\nGo (Golang) + Gin" as be #B3E5FC
-    rectangle "Database\nSupabase (PostgreSQL)" as db #B3E5FC
-  }
-  
-  rectangle "Fitur Utama" as fitur #F3E5F5 {
-    rectangle "Pelaporan\nAktivitas Harian" as f1 #E1BEE7
-    rectangle "Evaluasi Otomatis\nRules-Based Scoring" as f2 #E1BEE7
-    rectangle "Deteksi Anomali\nDuplicate Operator" as f3 #E1BEE7
-    rectangle "Dashboard\nMonitoring" as f4 #E1BEE7
-  }
-}
+| **TAHAP 2: DEFINE** |
+:Analisis data empirati;
+:Perumusan Problem Statement;
+:Penyusunan How Might We (HMW);
 
-rectangle "OUTPUT" as output #E8EAF6 {
-  rectangle "Sistem Evaluasi\nPelaporan Digital" as sistem #C5CAE9 {
-    note right of sistem
-      - Platform web responsif
-      - Evaluasi otomatis & terukur
-      - Dashboard real-time
-      - Data terintegrasi
-    end note
-  }
-  
-  rectangle "Evaluasi" as evaluasi #DCEDC8 {
-    rectangle "Black-box\nTesting" as bt #C5E1A5
-    rectangle "System Usability\nScale (SUS)" as sus #C5E1A5
-  }
-}
+| **TAHAP 3: IDEATE** |
+:Brainstorming solusi;
+:Penyusunan Affinity Diagram;
+note right
+  Pengelompokan ide
+  berdasarkan tema
+end note
 
-rectangle "DAMPAK" as dampak #FCE4EC {
-  note right of dampak
-    - Peningkatan efisiensi pelaporan
-    - Evaluasi kinerja objektif & terukur
-    - Monitoring real-time oleh pimpinan
-    - Pengambilan keputusan berbasis data
-    - Optimalisasi layanan publik
-  end note
-}
+| **TAHAP 4: PROTOTYPE** |
+:Penyusunan User Flow;
+:Pembuatan Wireframe;
+:Desain Visual (Figma);
+note right
+  High-fidelity prototype
+  dengan UI components
+end note
 
-kondisi -down-> scrum
-data -down-> scrum
-scrum -right-> tech
-tech -right-> fitur
-fitur -down-> sistem
-sistem -right-> evaluasi
-evaluasi -down-> dampak
+| **TAHAP 5: TEST** |
+:Uji Usability (SUS);
+:Pengumpulan Feedback;
+:Iterasi Perbaikan;
+
+:Sistem Siap Diimplementasikan;
+stop
 
 @enduml
