@@ -1,0 +1,72 @@
+@startuml
+skinparam backgroundColor white
+skinparam defaultFontName Arial
+skinparam defaultFontSize 9
+skinparam defaultTextAlignment left
+skinparam shadowing false
+skinparam linetype ortho
+
+skinparam rectangle {
+  BackgroundColor White
+  BorderColor Black
+  RoundCorner 0
+  FontSize 10
+}
+
+skinparam arrow {
+  Color Black
+  Thickness 1
+}
+
+rectangle "MULAI" as mulai
+rectangle "EMPATHIZE" as emp1
+rectangle "  • Observasi\n  • Wawancara" as emp2
+rectangle "**OUTPUT:**\n• Empathy Map\n• User Persona\n• User Journey Map\n• Daftar Kebutuhan Pengguna" as emp3
+
+rectangle "DEFINE" as def1
+rectangle "  • Problem Statement\n  • How Might We (HMW)" as def2
+rectangle "**OUTPUT:**\n• Rumusan Masalah\n• Pain Point\n• Kebutuhan Sistem" as def3
+
+rectangle "IDEATE" as ide1
+rectangle "  • Brainstorming\n  • Affinity Diagram\n  • Prioritas Fitur" as ide2
+rectangle "**OUTPUT:**\n• Ide Solusi\n• Prioritas Fitur\n• Requirement Sistem" as ide3
+
+rectangle "PROTOTYPE" as pro1
+rectangle "  • User Flow\n  • Information Architecture\n  • Wireframe\n  • Desain UI (Figma)\n  • High Fidelity Prototype\n  • Implementasi Frontend (Next.js)\n  • Implementasi Backend (Go)\n  • Integrasi API" as pro2
+rectangle "**OUTPUT:**\n• User Flow\n• Wireframe\n• Mockup UI\n• Prototype Interaktif\n• Aplikasi Web" as pro3
+
+rectangle "TEST" as tes1
+rectangle "  • Black-box Testing\n  • System Usability Scale (SUS)\n  • Feedback & Perbaikan" as tes2
+rectangle "**OUTPUT:**\n• Nilai SUS\n• Hasil Black-box\n• Daftar Perbaikan\n• Sistem Final" as tes3
+
+rectangle "SELESAI" as selesai
+
+' Row 1: Empathize
+emp1 -right-> emp2
+emp2 -right-> emp3
+
+' Row 2: Define
+emp3 -down-> def1
+def1 -right-> def2
+def2 -right-> def3
+
+' Row 3: Ideate
+def3 -down-> ide1
+ide1 -right-> ide2
+ide2 -right-> ide3
+
+' Row 4: Prototype
+ide3 -down-> pro1
+pro1 -right-> pro2
+pro2 -right-> pro3
+
+' Row 5: Test
+pro3 -down-> tes1
+tes1 -right-> tes2
+tes2 -right-> tes3
+
+' Start/End
+mulai -down-> emp1
+tes3 -down-> selesai
+
+@enduml

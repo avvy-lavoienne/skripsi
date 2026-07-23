@@ -1,0 +1,74 @@
+@startuml
+skinparam backgroundColor white
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+skinparam defaultTextAlignment center
+skinparam shadowing false
+skinparam linetype ortho
+
+skinparam rectangle {
+  BackgroundColor White
+  BorderColor Black
+  RoundCorner 0
+  FontSize 11
+}
+
+skinparam package {
+  BackgroundColor White
+  BorderColor Black
+  BorderStyle dashed
+  FontSize 12
+  FontStyle bold
+}
+
+skinparam arrow {
+  Color Black
+  Thickness 1.2
+}
+
+rectangle "MULAI" as mulai <<start>>
+rectangle "IDENTIFIKASI\nMASALAH" as im
+rectangle "STUDI\nLITERATUR" as sl
+rectangle "PENGUMPULAN\nDATA" as pd
+rectangle "METODE\nDESIGN THINKING" as mdt
+rectangle "KESIMPULAN" as k
+rectangle "SELESAI" as selesai <<stop>>
+
+package "METODE DESIGN THINKING" as dt {
+  rectangle "EMPATHIZE" as emp <<italic>> 
+  rectangle "  • Observasi\n  • Wawancara" as emp_detail
+
+  rectangle "DEFINE" as def <<italic>>
+  rectangle "  • Problem Statement\n  • How Might We (HMW)" as def_detail
+
+  rectangle "IDEATE" as ide <<italic>>
+  rectangle "  • Brainstorming Ide Solusi\n  • Affinity Diagram" as ide_detail
+
+  rectangle "PROTOTYPE" as pro <<italic>>
+  rectangle "  • User Flow\n  • Information Architecture\n  • Wireframe\n  • Desain UI (Figma)\n  • High Fidelity Prototype\n  • Implementasi Frontend (Next.js)\n  • Implementasi Backend (Go)\n  • Integrasi API" as pro_detail
+
+  rectangle "TEST" as tes <<italic>>
+  rectangle "  • Black-box Testing\n  • System Usability Scale (SUS)\n  • Feedback & Perbaikan" as tes_detail
+}
+
+' Main flow (left side)
+mulai -down-> im
+im -down-> sl
+sl -down-> pd
+pd -down-> mdt
+mdt -down-> k
+k -down-> selesai
+
+' Design Thinking expansion (right side)
+mdt -right-> emp
+emp -down-> emp_detail
+emp_detail -down-> def
+def -down-> def_detail
+def_detail -down-> ide
+ide -down-> ide_detail
+ide_detail -down-> pro
+pro -down-> pro_detail
+pro_detail -down-> tes
+tes -down-> tes_detail
+
+@enduml
